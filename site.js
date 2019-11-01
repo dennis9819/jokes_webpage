@@ -2,6 +2,7 @@ let anim_rows = 50;
 
 let humor = [];
 let jokes = [];
+getJokes();
 
 let cur_joke = {};
 
@@ -140,14 +141,14 @@ function calculateMapping(){
 }
 
 function getJokes() {
-    var jqxhr = $.getJSON("example.json", function () {
+    var jqxhr = $.getJSON("jokedb.json", function () {
         console.log("success");
     })
         .done(function ( data ) {
             console.log("second success");
             jokes = data;
         })
-        .fail(function () {
+        .fail(function ( err ) {
             console.log("error");
         })
         .always(function () {
